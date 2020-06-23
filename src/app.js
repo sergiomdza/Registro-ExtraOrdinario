@@ -17,6 +17,9 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Routes
-app.use('/usuarios', require('./routes/usuarios'));
+app.use('/api/usuarios', require('./routes/usuarios'));
+app.use('/api/maestros', require('./routes/maestros'));
+app.use('/api/materias', require('./routes/materias'));
+app.use('/api/registro', require('./routes/registro'));
 
 module.exports = app;

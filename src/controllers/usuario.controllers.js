@@ -3,7 +3,7 @@ const conexion = require('../database')
 const UserCtrl = {};
 
 UserCtrl.getUsers = async (req, res) => {
-  conexion.query("SELECT * FROM users", (err, rows, fields) => {
+  conexion.query("SELECT * FROM alumnos", (err, rows, fields) => {
     if (!err) {
       res.json(rows)
     } else {
@@ -14,15 +14,15 @@ UserCtrl.getUsers = async (req, res) => {
 
 UserCtrl.createUser = async (req, res) => {
 
-  const { name, last_name, phone, city, country } = req.body;
+  const {nombre, apellidos, carrera, semestre, correo } = req.body;
 
   var values = [
-    [name, last_name, phone, city, country, "Pendiente"]
+    [ nombre, apellidos, carrera, semestre, correo]
   ]
 
-  conexion.query("INSERT INTO users (name, last_name, phone, city, country, img_profile) VALUES ?", [values], (err, rows, fields) => {
+  conexion.query("INSERT INTO alumnos (nombre, apellidos, carrera, semestre, correo) VALUES ?", [values], (err, rows, fields) => {
     if (!err) {
-      res.json(rows)
+      res.redirect('../página%20principal/pagina_principal.html')
     } else {
       console.log(err);
     }
@@ -30,8 +30,8 @@ UserCtrl.createUser = async (req, res) => {
 
 };
 
-UserCtrl.DeleteUser = async (req, res) => {
-  conexion.query('DELETE FROM users WHERE id=?', [req.params.id], (err, rows, fields) => {
+UserCtrl.DeleteUser = async (req, res) => {  
+  conexion.query('DELETE FROM alumnos WHERE matricula=?', [req.params.id], (err, rows, fields) => {
     if (!err) {
       res.json(rows)
     } else {
@@ -40,18 +40,7 @@ UserCtrl.DeleteUser = async (req, res) => {
   })
 }
 
-UserCtrl.updateUser = async (req, res) => {
-
-  const { name, last_name, phone, city, country } = req.body;
-
-  conexion.query("UPDATE users set name=? ,last_name=?, phone=?, city=?, country=? WHERE id=?", [name, last_name, phone, city, country, req.params.id], (err, rows, fields) => {
-    if (!err) {
-      res.json(rows)
-    } else {
-      console.log("ERROR - :O");
-      console.log(err);
-    }
-  })
-
+UserCtrl.UpdateUser = async (req, res) => {
+  console.log("Esto no debe funcionar aun");
 }
 module.exports = UserCtrl;
