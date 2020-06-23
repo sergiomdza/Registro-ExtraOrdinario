@@ -12,6 +12,10 @@ UserCtrl.getUsers = async (req, res) => {
   })
 };
 
+UserCtrl.getMax = async (req, res) => {
+  res.send({num:7})
+};
+
 UserCtrl.createUser = async (req, res) => {
 
   const {nombre, apellidos, carrera, semestre, correo } = req.body;
