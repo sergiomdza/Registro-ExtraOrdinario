@@ -66,8 +66,9 @@ function FP_getObjectByID(id,o) {//v1.0
 	<tr>
 		<td>&nbsp;</td>
 		<td>
-		<a href="../../completado/completado.html" target="_blank">
+		<button onclick="generarRegistro(6000)">
 		<img id="img1" alt="Matemáticas discretas" fp-style="fp-btn: Braided Row 1; fp-font: Bahnschrift Condensed; fp-font-size: 20; fp-font-color-press: #FF0000; fp-transparent: 1" fp-title="Matemáticas discretas" height="50" onmousedown="FP_swapImg(1,0,/*id*/'img1',/*url*/'../../imagenes globales/button1C.gif')" onmouseout="FP_swapImg(0,0,/*id*/'img1',/*url*/'button6.gif')" onmouseover="FP_swapImg(1,0,/*id*/'img1',/*url*/'../../imagenes globales/button1B.gif')" onmouseup="FP_swapImg(0,0,/*id*/'img1',/*url*/'../../imagenes globales/button1B.gif')" src="button6.gif" style="border: 0" width="250"><br><br>
+		</button>
 		<br><br></td>
 		<td class="auto-style7">
 		<a href="../../completado/completado.html" target="_blank">
@@ -105,5 +106,10 @@ function FP_getObjectByID(id,o) {//v1.0
 </table>
 
 </body>
-
+<script>
+	function generarRegistro(id){
+		localStorage.setItem('idmateria', id)
+		window.location = "../../completado/completado.html"
+	}
+</script>
 </html>

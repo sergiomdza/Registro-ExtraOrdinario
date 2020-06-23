@@ -21,5 +21,6 @@ app.use('/api/usuarios', require('./routes/usuarios'));
 app.use('/api/maestros', require('./routes/maestros'));
 app.use('/api/materias', require('./routes/materias'));
 app.use('/api/registro', require('./routes/registro'));
+app.use('/api/descarga', require('./routes/descarga'));
 
 module.exports = app;

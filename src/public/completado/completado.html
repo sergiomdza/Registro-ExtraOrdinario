@@ -77,7 +77,13 @@
 					</button>
 					<br>
 				</span><br>Recuerda llevar tu comprobante de pago junto con tu ticket de
-				pase para que se te permita realizar el exámen<br></td>
+				pase para que se te permita realizar el exámen<br>
+				<br/>
+				<a href="/api/descarga/img1">Descargar Ficha de pago</a>
+				<br/>
+				<br/>
+				<a href="/api/descarga/img2">Descargar Ticket de entrada</a>
+			</td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
@@ -97,7 +103,7 @@
 			.then(function (myJson) {
 				var url = 'http://localhost:4000/api/registro';
 				var data = {
-				alumnos_matricula: myJson.num,
+				alumnos_matricula: myJson[0].matricula,
 				materias_id: localStorage.getItem("idmateria"),
 				};
 
@@ -109,7 +115,7 @@
 				}
 				}).then(res => res.json())
 				.catch(error => console.error('Error:', error))
-				.then(response => console.log("todo correcto"));
+				.then(response => alert("Se registró correctamente al Extraordinario"));
 			});
 	}
 </script>

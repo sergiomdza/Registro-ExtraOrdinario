@@ -13,7 +13,13 @@ UserCtrl.getUsers = async (req, res) => {
 };
 
 UserCtrl.getMax = async (req, res) => {
-  res.send({num:7})
+  conexion.query("SELECT matricula FROM alumnos order by matricula desc limit 1", (err, rows, fields) => {
+    if (!err) {
+      res.json(rows)
+    } else {
+      console.log(err);
+    }
+  })
 };
 
 UserCtrl.createUser = async (req, res) => {
