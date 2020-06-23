@@ -16,8 +16,9 @@ UserCtrl.createRegistro = async (req, res) => {
 
   const {fecha, salon, calificación, alumnos_matricula, Maestro_matricula, materias_id } = req.body;
   var numeros =["A23", "122", "Computo 1", "B35" ]
+  var maestros =[6, 7, 8, 9, 10, 11]
   var values = [
-    [191201, numeros[Math.floor(Math.random() * 4)], Math.floor(Math.random() * 10), alumnos_matricula, Maestro_matricula, materias_id]
+    [191201, numeros[Math.floor(Math.random() * 4)], Math.floor(Math.random() * 10), alumnos_matricula, maestros[Math.floor(Math.random() * 5)], materias_id]
   ]
 
   conexion.query("INSERT INTO registro (fecha, salon, calificación, alumnos_matricula, Maestro_matricula, materias_id) VALUES ?", [values], (err, rows, fields) => {
